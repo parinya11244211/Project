@@ -190,7 +190,7 @@ body{
 			<li><a href='<?php echo base_url();?>index.php/admins/importstu'>นำเข้าข้อมูลนักศึกษา</a></li>
             <!-- เมนูสั่งไป Controller admins ใน Function importstu -->
 			<li><a href='<?php echo base_url();?>index.php/admins/mast'>กำหนดนักศึกษาให้อาจารย์ที่ปรึกษา</a></li>
-            <!-- เมนูสั่งไป Controller admins ใน Function mast -->
+            <!-- เมนูสั่งไป Controller admins ใน Function mst -->
 		</ul>
 	</div>	
     </div>
