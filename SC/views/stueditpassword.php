@@ -65,7 +65,7 @@ input[type=text]{
 	border-radius:5px;
 	border:0;
 	box-shadow:2px 2px 2px #333333;
-	-webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+	-webkit-transition: all 0.5s; /* Safari 3.1 t 6.0 */
     transition: all 0.5s;
 	margin-right:5px;
 }
