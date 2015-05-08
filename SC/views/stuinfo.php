@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Wlecome Student</title>
+<title>Wlecome Studen</title>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url()?>js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>js/script.js"></script>
