@@ -6,7 +6,7 @@ class Admin extends CI_Model {
     }
 
 ######  Attribute  ###### 
-    var $adminId ; ######  ลำดับ  ######
+    var $adminId ; ######  ลำดับ  #####
     var $adminUsername ; ######  ชื่อเข้าระบบ  ######
     var $adminPassword ; ######  รหัสผ่านเข้าระบบ  ######
     var $adminCode ; ######  รหัสประจำตัว  ######
