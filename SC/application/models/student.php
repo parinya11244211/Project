@@ -283,6 +283,26 @@ class Student extends CI_Model {
 		$query = $this->db->get('student')->result_array();//เรียกใช้ table student
 		return $query;
 	}
+	function stuSearchCode()
+	{	
+		$loginData = $this->session->userdata('loginData');
+		$this->db->join('match','match.stuId = student.stuId');
+		$this->db->like('stuCode',$this->getStuCode());//ค้นหาจากชื่อนักศึกษา like คือหาชื่อที่มีตัวนั้นๆที่ส่งมา
+		$this->db->where('match.teaId',$loginData['id']);//อาจารย์ใช้ id จากการเข้าสู่ระบบไปค้นหา นักศึกษาของตัวเองจาก table match
+		$this->db->group_by('match.stuId');//เอาค่าที่ซ้ำกันไม่แสดง ตามหัวข้อ ในตาราง point
+		$query = $this->db->get('student')->result_array();//เรียกใช้ table student
+		return $query;
+	}
+	function stuSearchEmail()
+	{	
+		$loginData = $this->session->userdata('loginData');
+		$this->db->join('match','match.stuId = student.stuId');
+		$this->db->like('stuEmail',$this->getStuEmail());//ค้นหาจากชื่อนักศึกษา like คือหาชื่อที่มีตัวนั้นๆที่ส่งมา
+		$this->db->where('match.teaId',$loginData['id']);//อาจารย์ใช้ id จากการเข้าสู่ระบบไปค้นหา นักศึกษาของตัวเองจาก table match
+		$this->db->group_by('match.stuId');//เอาค่าที่ซ้ำกันไม่แสดง ตามหัวข้อ ในตาราง point
+		$query = $this->db->get('student')->result_array();//เรียกใช้ table student
+		return $query;
+	}
 	function getByTeaEvent()
 	{
 		$datalogin = $this->session->userdata('loginData');
@@ -309,6 +329,17 @@ class Student extends CI_Model {
 		$this->db->order_by('teaevent.teaEventId','DESC');
 		$this->db->limit(1);
 		$data = $this->db->get('teaevent')->result_array();
+		return $data;
+		//เช็คดูว่านักศึกษามีกิจกรรมที่ status ไม่เท่ากับ 1 และ 6 หรือไม่ 1 = สามารถนัดได้ 6 = เสร็จสิ้น จะดูเฉพาะนักศึกษาคนนั้นๆ และรายการทำได้เพียงรายการเดียว
+	}
+	
+			function showEventWith()
+	{
+		$datalogin = $this->session->userdata('loginData');
+		$this->db->join('teaevent','teaevent.teaEventId = event.teaEventId');
+		$this->db->where('teaevent.teaEventStatus !=',6);
+		$this->db->where('event.stuId',$datalogin['id']);
+		$data = $this->db->get('event')->result_array();
 		return $data;
 		//เช็คดูว่านักศึกษามีกิจกรรมที่ status ไม่เท่ากับ 1 และ 6 หรือไม่ 1 = สามารถนัดได้ 6 = เสร็จสิ้น จะดูเฉพาะนักศึกษาคนนั้นๆ และรายการทำได้เพียงรายการเดียว
 	}
